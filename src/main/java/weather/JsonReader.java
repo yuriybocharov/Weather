@@ -36,7 +36,8 @@ public class JsonReader {
     }
 
     public static String sendMassage() throws IOException, JSONException, ParseException {
-        WeatherData weatherData = readJsonFromUrl ("https://api.openweathermap.org/data/2.5/forecast?q=" + Variables.CYTI + "&units=metric&appid=811868fedd9d7eaa4cb55dc3622a535b");
+        WeatherData weatherData = readJsonFromUrl ("https://api.openweathermap.org/data/2.5/forecast?q="
+                + Variables.CYTI + "&units=metric&appid=811868fedd9d7eaa4cb55dc3622a535b");
         formatDate mb = new formatDate ();
         String text = "";
         String startDay = mb.date (weatherData.getList ().get (0).getDtTxt ());

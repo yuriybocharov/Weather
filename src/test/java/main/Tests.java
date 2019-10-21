@@ -1,10 +1,7 @@
 package main;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,7 +45,9 @@ public class Tests extends JsonReader {
         driver.findElement (By.xpath (MailPage.LOGIN)).sendKeys (Variables.LOGIN);
         driver.findElement (By.xpath (MailPage.IDENTIFIER_NEXT)).click ();
         driver.findElement (By.xpath (MailPage.PASSWORD)).sendKeys (Variables.PASSWORD);
-        wait.until (ExpectedConditions.elementToBeClickable (By.xpath (MailPage.PASSWORD_NEXT))).click ();
+        wait.until(ExpectedConditions.elementToBeClickable (By.xpath (MailPage.PASSWORD_NEXT)));
+        ((JavascriptExecutor)driver).executeScript ("arguments[0].click();",
+                driver.findElement (By.xpath (MailPage.PASSWORD_NEXT)));
         driver.findElement (By.xpath (MailPage.WRITE_LETTER)).click ();
         driver.findElement (By.className (MailPage.MAILING_ADDRESS)).sendKeys (Variables.MAILINGADDRESS);
         driver.findElement (By.className (MailPage.TOPIC)).sendKeys (topic ());
@@ -66,6 +65,7 @@ public class Tests extends JsonReader {
         List<WebElement> ele1 = driver.findElements (By.xpath (MailPage.TEXT_LETTER));
         for (WebElement element : ele1) {
             letter += element.getText ();
+
         }
         System.out.println (letter.contains (text));
         System.out.println (text.contains (letter));
