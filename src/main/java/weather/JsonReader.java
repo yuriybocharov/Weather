@@ -63,7 +63,9 @@ public class JsonReader {
                 if (tempOneNight.isEmpty ()) {
                     tempOneNight.add (0.00);
                 }
-                listdays.add (new Day (mb.date (weatherData.getList ().get (i).getDtTxt ()), Collections.min (tempOneDay), Collections.max (tempOneDay), Collections.min (tempOneNight), Collections.max (tempOneNight)));
+                listdays.add (new Day (mb.date (weatherData.getList ().get (i).getDtTxt ()),
+                        Collections.min (tempOneDay), Collections.max (tempOneDay),
+                        Collections.min (tempOneNight), Collections.max (tempOneNight)));
                 startDay = mb.date (weatherData.getList ().get (i).getDtTxt ());
                 tempOneNight = new ArrayList<> ();
                 tempOneDay = new ArrayList<> ();
