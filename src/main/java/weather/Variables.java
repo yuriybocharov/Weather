@@ -5,13 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class Variables extends JsonReader {
-
-
-    public static DateFormat sdf = new SimpleDateFormat ("HH:mm:ss");
-    public static Date date = new Date ();
-    public static final String time = sdf.format (date);
-
+public class Variables{
 
     public static final String URL = "https://mail.google.com/";
     public static final String LOGIN = "testjuniorqaautomation";

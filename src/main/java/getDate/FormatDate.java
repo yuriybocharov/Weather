@@ -1,10 +1,15 @@
 package getDate;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class formatDate {
+public class FormatDate {
+
+    public static DateFormat sdf = new SimpleDateFormat ("HH:mm:ss");
+    public static Date date = new Date ();
+    public static final String time = sdf.format (date);
 
     public String date(String dateInString) throws ParseException {
 

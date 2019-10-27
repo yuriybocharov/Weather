@@ -1,8 +1,10 @@
 package weather;
 
-import getDate.formatDate;
 import com.google.gson.Gson;
+import getDate.FormatDate;
+import model.WeatherData;
 import org.json.JSONException;
+
 
 import java.io.*;
 import java.net.URL;
@@ -13,6 +15,7 @@ import java.util.Collections;
 
 
 public class JsonReader {
+
 
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder ();
@@ -35,13 +38,12 @@ public class JsonReader {
         }
     }
 
-    public static String sendMassage() throws IOException, JSONException, ParseException {
-        WeatherData weatherData = readJsonFromUrl ("https://api.openweathermap.org/data/2.5/forecast?q="
-                + Variables.CYTI + "&units=metric&appid=811868fedd9d7eaa4cb55dc3622a535b");
-        formatDate mb = new formatDate ();
-        String text = "";
-        String startDay = mb.date (weatherData.getList ().get (0).getDtTxt ());
+    public static ArrayList<Day> weather() throws IOException, ParseException {
+        WeatherData weatherData = readJsonFromUrl ("https://api.openweathermap.org/data/2.5/forecast?q=" + Variables.CYTI + "&units=metric&appid=811868fedd9d7eaa4cb55dc3622a535b");
+        FormatDate mb = new FormatDate ();
         ArrayList<Day> listdays = new ArrayList ();
+        String startDay = mb.date (weatherData.getList ().get (0).getDtTxt ());
+
         ArrayList<Double> tempOneDay = new ArrayList ();
         ArrayList<Double> tempOneNight = new ArrayList ();
 
@@ -63,20 +65,21 @@ public class JsonReader {
                 if (tempOneNight.isEmpty ()) {
                     tempOneNight.add (0.00);
                 }
-                listdays.add (new Day (mb.date (weatherData.getList ().get (i).getDtTxt ()),
-                        Collections.min (tempOneDay), Collections.max (tempOneDay),
-                        Collections.min (tempOneNight), Collections.max (tempOneNight)));
+                listdays.add (new Day (mb.date (weatherData.getList ().get (i).getDtTxt ()), Collections.min (tempOneDay), Collections.max (tempOneDay), Collections.min (tempOneNight), Collections.max (tempOneNight)));
                 startDay = mb.date (weatherData.getList ().get (i).getDtTxt ());
                 tempOneNight = new ArrayList<> ();
                 tempOneDay = new ArrayList<> ();
             }
         }
+        return listdays;
+    }
+    public static String sendMassege () throws IOException, ParseException {
 
-        for (Object listday : listdays) {
+        String text = "";
+        for (Object listday : weather ()) {
 
             text += listday.toString () + "\n";
         }
-
         return text.substring (0, text.length () - 1);
     }
 
