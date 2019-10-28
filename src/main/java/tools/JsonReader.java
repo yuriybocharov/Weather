@@ -1,4 +1,4 @@
-package weather;
+package tools;
 
 import com.google.gson.Gson;
 import getDate.FormatDate;
@@ -39,7 +39,8 @@ public class JsonReader {
     }
 
     public static ArrayList<Day> weather() throws IOException, ParseException {
-        WeatherData weatherData = readJsonFromUrl ("https://api.openweathermap.org/data/2.5/forecast?q=" + Variables.CYTI + "&units=metric&appid=811868fedd9d7eaa4cb55dc3622a535b");
+        WeatherData weatherData = readJsonFromUrl ("https://api.openweathermap.org/data/2.5/forecast?q="
+                + WeatherCity.CYTI + "&units=metric&appid=811868fedd9d7eaa4cb55dc3622a535b");
         FormatDate mb = new FormatDate ();
         ArrayList<Day> listdays = new ArrayList ();
         String startDay = mb.date (weatherData.getList ().get (0).getDtTxt ());
@@ -73,7 +74,8 @@ public class JsonReader {
         }
         return listdays;
     }
-    public static String sendMassege () throws IOException, ParseException {
+
+    public static String sendMassege() throws IOException, ParseException {
 
         String text = "";
         for (Object listday : weather ()) {

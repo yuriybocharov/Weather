@@ -12,7 +12,7 @@ public class List {
     @SerializedName("main")
     @Expose
     private Main main;
-    @SerializedName("weather")
+    @SerializedName("tools")
     @Expose
     private java.util.List<Weather> weather = null;
     @SerializedName("clouds")

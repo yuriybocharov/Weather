@@ -8,8 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import pages.*;
-import weather.Variables;
+import pages.Variables;
 import getDate.FormatDate;
+import tools.WeatherCity;
 
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static weather.JsonReader.sendMassege;
+import static tools.JsonReader.sendMassege;
 
 
 public class Tests {
@@ -26,7 +27,7 @@ public class Tests {
 
 
     public static final String topic() {
-        return Variables.TOPIC += Variables.CYTI + " " + FormatDate.time;
+        return Variables.TOPIC += WeatherCity.CYTI + " " + FormatDate.time;
     }
 
     String text = null;

@@ -1,4 +1,4 @@
-package weather;
+package tools;
 
 public class Day {
     public String getStartDay() {
@@ -26,7 +26,8 @@ public class Day {
 
     public Double tempNightMin;
 
-    public Day(String startDay,Double tempDayMin, Double tempDayMax,Double tempNightMin, Double tempNightMax) {
+    public Day(String startDay,Double tempDayMin,
+               Double tempDayMax,Double tempNightMin, Double tempNightMax) {
         this.startDay = startDay;
         this.tempDayMax = tempDayMax;
         this.tempDayMin = tempDayMin;
