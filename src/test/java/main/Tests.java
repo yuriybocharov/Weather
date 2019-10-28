@@ -18,14 +18,17 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static tools.JsonReader.sendMassege;
+import static tools.CreatMassege.sendMassege;
+
 
 
 public class Tests {
     public WebDriver driver;
     public WebDriverWait wait;
 
-
+    {
+        System.setProperty ("webdriver.chrome.driver", "C:\\Users\\Ura\\Downloads\\chromedriver.exe");
+    }
     public static final String topic() {
         return Variables.TOPIC += WeatherCity.CYTI + " " + FormatDate.time;
     }
@@ -79,9 +82,7 @@ public class Tests {
         System.out.println (text.contains (letter));
     }
 
-    {
-        System.setProperty ("webdriver.chrome.driver", "C:\\Users\\Ura\\Downloads\\chromedriver.exe");
-    }
+
 
     @BeforeClass(alwaysRun = true)
     public void start() {
