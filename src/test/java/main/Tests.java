@@ -25,16 +25,18 @@ import static tools.CreatMassege.sendMassege;
 public class Tests {
     public WebDriver driver;
     public WebDriverWait wait;
+    String text = null;
+    String letter = "";
 
     {
         System.setProperty ("webdriver.chrome.driver", "C:\\Users\\Ura\\Downloads\\chromedriver.exe");
     }
+
     public static final String topic() {
         return Variables.TOPIC += WeatherCity.CYTI + " " + FormatDate.time;
     }
 
-    String text = null;
-    String letter = "";
+
 
 
     @Test(priority = 1)
