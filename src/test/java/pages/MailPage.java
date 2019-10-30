@@ -14,5 +14,4 @@ public class MailPage {
     public final static String SEND = "[aria-label*='Enter)']";
     public final static String INBOX = "//*[@id=\":1\"]/div/div/div[6]";
     public final static String TEXT_LETTER = "//div[@dir='ltr']";
-
 }
