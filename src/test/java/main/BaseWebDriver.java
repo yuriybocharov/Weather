@@ -21,7 +21,7 @@ public class BaseWebDriver {
     @BeforeClass(alwaysRun = true)
     public void start() {
         ChromeOptions options = new ChromeOptions ();
-        options.addArguments ("--incognito");
+       // options.addArguments ("--incognito");
 
         driver = new ChromeDriver (options);
         driver.manage ().window ().maximize ();

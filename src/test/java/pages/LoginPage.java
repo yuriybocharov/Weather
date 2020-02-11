@@ -24,7 +24,9 @@ public class LoginPage {
 
     public void loginToGmail(String userid, String pass) {
         driver.findElement (username).sendKeys (userid);
-        driver.findElement (identifierNext).click ();
+        wait.until (ExpectedConditions.elementToBeClickable (identifierNext));
+        ((JavascriptExecutor) driver).executeScript ("arguments[0].click();", driver.findElement (identifierNext));
+       // driver.findElement (identifierNext).click ();
         driver.findElement (password).sendKeys (pass);
         wait.until (ExpectedConditions.elementToBeClickable (passwordNext));
         ((JavascriptExecutor) driver).executeScript ("arguments[0].click();", driver.findElement (passwordNext));
