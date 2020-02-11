@@ -1,7 +1,7 @@
 package pages;
 
-
-public class MailPage {/////*[@id="identifierNext"]
+////*[@id=":af"]   [aria-label*='Enter)']"
+public class MailPage {
 
     public final static String LOGIN = "//*[@id=\"identifierId\"]";
     public final static String PASSWORD = "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input";

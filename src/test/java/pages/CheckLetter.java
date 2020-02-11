@@ -14,7 +14,7 @@ public class CheckLetter {
 
     By inbox = By.xpath (MailPage.INBOX);
     By letters = By.cssSelector ("tr");
-    By textLetter = By.xpath (MailPage.TEXT_LETTER);
+    By getTextLetter = By.xpath (MailPage.TEXT_LETTER);
 
     public CheckLetter(WebDriver driver) {
         this.driver = driver;
@@ -34,7 +34,8 @@ public class CheckLetter {
     }
 
     public String textLetter (){
-        List<WebElement> ele1 = driver.findElements (textLetter);
+        List<WebElement> ele1 = driver.findElements (getTextLetter);
+
         for (WebElement element : ele1) {
             letter += element.getText ();
         }

@@ -52,6 +52,7 @@ public class Tests extends BaseWebDriver {
 
         System.out.println (textLetter.contains (text));
         System.out.println (text.contains (textLetter));
+        //System.out.println (textLetter);
 
     }
 
